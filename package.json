@@ -21,7 +21,7 @@
     "plugin"
   ],
   "author": "WarbleSync",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/WarbleSync/nodebb-widget-bfserver-stats/issues"
   },
