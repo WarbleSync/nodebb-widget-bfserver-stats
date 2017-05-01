@@ -47,7 +47,7 @@ Widget.renderBFServerWidget = function(widget, callback) {
 		platform: bf.Platforms[configData.platform],
 		id: configData.severId
 	}
-	bf.Server.quickServerInfo(params, (error, response) => {
+	bf.Server.quickServerInfo(params, function(error, response){
 		var rep = response
 		// console.log('\n',JSON.stringify(response),'\n')
 		var pre = ""+fs.readFileSync(path.resolve(__dirname,'./public/templates/bfserverstats.tpl'));
