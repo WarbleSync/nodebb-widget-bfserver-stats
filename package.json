@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "NodeBB widget to show battlefield server stats",
   "main": "library.js",
-  "dependencies": {},
+  "dependencies": {
+    "battlefield-stats": "^1.0.8"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -25,6 +27,6 @@
   },
   "homepage": "https://github.com/WarbleSync/nodebb-widget-bfserver-stats#readme",
   "nbbpm": {
-        "compatibility": "^1.0.0"
-    }
+    "compatibility": "^1.0.0"
+  }
 }

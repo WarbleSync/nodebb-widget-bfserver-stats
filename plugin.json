@@ -1,15 +1,15 @@
 {
-    "id": "nodebb-widget-teamspeak-vrk",
-    "name": "NodeBB Teamspeak widget VRK",
-    "description": "Custom Teamspeak plugin for NodeBB.",
-    "url": "https://github.com/WarbleSync/nodebb-widget-teamspeak-vrk.git",
+    "id": "nodebb-widget-bfserver-stats",
+    "name": "NodeBB Battlefield Server Stats widget",
+    "description": "Custom Battlefield Server Stats widget for NodeBB.",
+    "url": "https://github.com/WarbleSync/nodebb-widget-bfserver-stats",
     "library": "./library.js",
     "staticDirs": {
         "public": "public"
     },
     "hooks": [
       { "hook": "static:app.load", "method": "init" },
-      { "hook": "filter:widget.render:teamspeak-vrk", "method": "renderTeamspeakWidget" },
+      { "hook": "filter:widget.render:bfserver-stats-vrk", "method": "renderBFServerWidget" },
       { "hook": "filter:widgets.getWidgets", "method": "defineWidgets" }
     ],
     "css": [

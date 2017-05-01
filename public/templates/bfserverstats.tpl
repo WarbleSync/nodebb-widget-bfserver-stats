@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="/plugins/nodebb-widget-teamspeak-vrk/public/css/style.css">
+<link rel="stylesheet" type="text/css" href="/plugins/nodebb-widget-bfserver-stats/public/css/style.css">
 <div class="ts3-vrk-widget">
   <h4 class="ts3-title" >
     {serverName}
