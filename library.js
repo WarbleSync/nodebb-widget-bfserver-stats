@@ -10,7 +10,7 @@ app;
 
 var Widget = {
 	templates: {}
-};
+}
 
 Widget.init = function(params, callback) {
   app = params.app;
@@ -22,7 +22,7 @@ Widget.init = function(params, callback) {
   function loadTemplate(template, next){
     fs.readFile(path.resolve(__dirname,'./public/templates/' + template), function(err,data){
       if(err){
-        console.log(err.message);
+        console.log('bfserver-stats',err.message);
         return next(err);
       }
       Widget.templates[template] = data.toString();
