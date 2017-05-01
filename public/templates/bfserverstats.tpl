@@ -1,29 +1,22 @@
 <link rel="stylesheet" type="text/css" href="/plugins/nodebb-widget-bfserver-stats/public/css/style.css">
-<div class="ts3-vrk-widget">
-  <h4 class="ts3-title" >
-    {serverName}
-    <span class="small">
-      ({serverAddress})
-    </span>
+<div class="bfserver-stats" role="main">
+	<h4 class="serverName">
+    {serverInfo.name} <br/>
+    <small>{serverInfo.description}</small>
   </h4>
-
-  <a class="btn btn-primary ts3-join-button" role="button" href="ts3server://{serverAddress}">
-    <div class="text-uppercase">join server</div>
-  </a>
-
-  <div class="ts3-online-clients" >
-    <div>
-      <span class="badge">
-        {clients.length}
-      </span> Users Online:
-    </div>
-
-    <div class="ts3-online-users" >
-      <ul class="list-group text-right">
-        <!-- BEGIN clients -->
-          <li class="list-group-item"> {clients.client_nickname} </li>
-        <!-- END clients -->
-      </ul>
-    </div>
-  </div>
+	<div class="mapImage">
+		<img class="currentMap img-thumbnail" src="{activityInfo.mapImageUrl}" />
+	</div>
+	<dl class="dl-horizontal text-right stats small">
+		<dt>Mode:</dt>
+		<dd>{activityInfo.currentMode}</dd>
+		<dt>Map:</dt>
+		<dd>{activityInfo.currentMap}</dd>
+		<dt>Soldier Slots:</dt>
+		<dd>{slots.Soldier.current} / {slots.Soldier.max}</dd>
+		<dt>Spectator Slots:</dt>
+		<dd>{slots.Spectator.current} / {slots.Spectator.max}</dd>
+		<dt>Queue:</dt>
+		<dd>{slots.Queue.current} / {slots.Queue.max}</dd>
+	</dl>
 </div>

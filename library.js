@@ -4,7 +4,7 @@ var async =  module.parent.require('async'),
 fs = require('fs'),
 path = require('path'),
 templates = module.parent.require('templates.js'),
-TeamSpeakClient = require("node-teamspeak"),
+BattlefieldStats = require('battlefield-stats'),
 util = require("util"),
 app;
 
@@ -36,61 +36,23 @@ Widget.init = function(params, callback) {
 };
 
 Widget.renderBFServerWidget = function(widget, callback) {
-  // console.log('[[[[[[[[[[[[[ RENDERING ]]]]]]]]]]]]]')
-  //need to check for null before rendering!!!!
-	var serverData = {
-		'serverName': widget.data.name,
+	var configData = {
+		'platform': widget.data.platform,
 		'severId': widget.data.severid,
 		'apikey': widget.data.apikey
 	}
-	console.log(serverData)
-	var rep = {
-		'serverName': widget.data.name || 'Teamspeak Server',
-		'serverAddress': serverData.serverAddress,
-		'clients': []
-	};
-	// var cl = new TeamSpeakClient(serverData.serverAddress, serverData.serverQueryPort);
-	//
-	// cl.on('error', function(err){
-	// 	console.log(err)
-	// })
-	//
-	// cl.on('connect', function(res){
-	// 	cl.send(
-	// 		'login',
-	// 		{
-	// 			client_login_name: serverData.username,
-	// 			client_login_password: serverData.password
-	// 		},
-	// 		function(err, res){
-	// 			if(err) { console.log(err) }
-	// 			cl.send('use',
-	// 			{ sid: serverData.serverVID },
-	// 			function(err,res){
-	// 				cl.send('clientlist', function(err, clients){
-	// 					if(err) { console.log(err) }
-	// 					async.each(clients,function(client, callback){
-	// 						if(client.client_type !== 1){
-	// 							rep.clients.push(client)
-	// 						}
-	// 						callback()
-	// 					},
-	// 					function(err){
-	// 						async.sortBy(rep.clients, function(x, callback) {
-	// 						    callback(null, x.client_nickname);
-	// 						}, function(err,result) {
-	// 						    rep.clients = result
-	// 								var pre = ""+fs.readFileSync(path.resolve(__dirname,'./public/templates/teamspeak.tpl'));
-	// 							  callback(null, templates.parse(pre, rep));
-	// 						});
-	// 					})
-	// 				}) // end get clients
-	// 			})
-	// 		})
-	// })
-
-	var pre = ""+fs.readFileSync(path.resolve(__dirname,'./public/templates/bfserverstats.tpl'));
-	callback(null, templates.parse(pre, rep));
+	// console.log(configData)
+	var bf = new BattlefieldStats(configData.apikey)
+	var params = {
+		platform: bf.Platforms[configData.platform],
+		id: configData.severId
+	}
+	bf.Server.quickServerInfo(params, (error, response) => {
+		var rep = response
+		// console.log('\n',JSON.stringify(response),'\n')
+		var pre = ""+fs.readFileSync(path.resolve(__dirname,'./public/templates/bfserverstats.tpl'));
+		callback(null, templates.parse(pre, rep));
+	})
 };
 
 Widget.defineWidgets = function(widgets, callback) {
@@ -98,7 +60,7 @@ Widget.defineWidgets = function(widgets, callback) {
   		{
   			widget: "bfserver-stats-vrk",
   			name: "bfserver-stats-vrk",
-  			description: "description",
+  			description: "NodeBB Widget to so Battlefield Server Stats",
   			content: Widget.templates['widget.tpl']
   		}
   	]);
