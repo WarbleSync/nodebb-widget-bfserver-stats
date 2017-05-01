@@ -1,1 +1,1 @@
-## NodeBB Teamspeak Plugin for VRK
+## NodeBB Battlefield Server Stats Widget for VRK

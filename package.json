@@ -1,0 +1,30 @@
+{
+  "name": "nodebb-widget-bfserver-stats",
+  "version": "1.0.0",
+  "description": "NodeBB widget to show battlefield server stats",
+  "main": "library.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WarbleSync/nodebb-widget-bfserver-stats.git"
+  },
+  "keywords": [
+    "NodeBB",
+    "Battlefield",
+    "widget",
+    "plugin"
+  ],
+  "author": "WarbleSync",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WarbleSync/nodebb-widget-bfserver-stats/issues"
+  },
+  "homepage": "https://github.com/WarbleSync/nodebb-widget-bfserver-stats#readme",
+  "nbbpm": {
+        "compatibility": "^1.0.0"
+    }
+}
