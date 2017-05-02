@@ -1,14 +1,12 @@
 <link rel="stylesheet" type="text/css" href="/plugins/nodebb-widget-bfserver-stats/public/css/style.css">
-<div class="bfserver-stats" role="main">
 	<h5 class="serverName">
     {serverInfo.name}: <br/>
     <small>{serverInfo.description}</small>
   </h5>
 	<div class="mapImage">
-		<img class="currentMap img-thumbnail" src="{activityInfo.mapImageUrl}" />
+		<img class="img-thumbnail" src="{activityInfo.mapImageUrl}"/>
 	</div>
-	<div>
-		<table class="table small stats">
+		<table class="table small strech">
 			<tbody class="">
 				<tr>
 					<td class="text-left">Mode:</td>
@@ -32,5 +30,3 @@
 				</tr>
 			</tbody>
 		</table>
-	</div>
-</div>
